@@ -76,22 +76,21 @@ body{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   border: 2px solid #023E7D;
   border-radius: 5px;
   width: 50%;
 }
 
-.personal__info{
+.input__group{
   display: flex;
   flex-direction: column;
-  gap: .3rem;
-  border: 2px solid #001845;
-  padding: 1rem;
-  border-radius: 5px;
-  width: 90%;
-  margin: 0 auto;
+  gap: .4rem;
+}
 
+.input__group__title{
+  font-size: 1.2rem;
+  color: #001233;
 }
 
 .cv__form__input{
