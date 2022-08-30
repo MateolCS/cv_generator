@@ -3,8 +3,11 @@ import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import EducationInfo from "./EducationInfo";
 import Button from "./Button";
+import WorkExperience from "./WorkExperience";
+
 const CvForm = () => {
   const [schoolInfo, setSchoolInfo] = useState(1);
+  const [workInfo, setWorkInfo] = useState(1);
 
   const addEducationInfo = (e) => {
     e.preventDefault();
@@ -14,12 +17,27 @@ const CvForm = () => {
   const removeEducationInfo = (e) => {
     e.preventDefault();
     setSchoolInfo(schoolInfo === 1 ? 1 : schoolInfo - 1);
-    educationInfoComponents.pop();
   };
 
+  const addWorkInfo = (e) => {
+    e.preventDefault();
+    setWorkInfo(workInfo + 1);
+  };
+
+  const removeWorkInfo = (e) => {
+    e.preventDefault();
+    setWorkInfo(workInfo === 1 ? 1 : workInfo - 1);
+  };
+
+  const workInfoComponents = [];
   const educationInfoComponents = [];
+
   for (let i = 0; i < schoolInfo; i++) {
     educationInfoComponents.push(<EducationInfo />);
+  }
+
+  for (let i = 0; i < workInfo; i++) {
+    workInfoComponents.push(<WorkExperience />);
   }
 
   return (
@@ -33,6 +51,10 @@ const CvForm = () => {
         bgColor={"#33415C"}
         clickEvent={removeEducationInfo}
       />
+      <h4 className="input__group__title">Work experience</h4>
+      {workInfoComponents}
+      <Button text={"Add"} bgColor={"#33415C"} clickEvent={addWorkInfo} />
+      <Button text={"Remove"} bgColor={"#33415C"} clickEvent={removeWorkInfo} />
     </form>
   );
 };

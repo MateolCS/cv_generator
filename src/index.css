@@ -110,3 +110,11 @@ body{
   color: #fff;
   padding: .3rem;
 }
+
+.form__utility__button{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
