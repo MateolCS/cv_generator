@@ -3,7 +3,6 @@ import React from "react";
 const EducationInfo = () => {
   return (
     <div className="input__group">
-      <h4 className="input__group__title">Education</h4>
       <input
         className="cv__form__input"
         type="text"
