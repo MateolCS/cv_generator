@@ -33,11 +33,11 @@ const CvForm = () => {
   const educationInfoComponents = [];
 
   for (let i = 0; i < schoolInfo; i++) {
-    educationInfoComponents.push(<EducationInfo />);
+    educationInfoComponents.push(<EducationInfo key={i} />);
   }
 
   for (let i = 0; i < workInfo; i++) {
-    workInfoComponents.push(<WorkExperience />);
+    workInfoComponents.push(<WorkExperience key={i} />);
   }
 
   return (
@@ -55,6 +55,10 @@ const CvForm = () => {
       {workInfoComponents}
       <Button text={"Add"} bgColor={"#33415C"} clickEvent={addWorkInfo} />
       <Button text={"Remove"} bgColor={"#33415C"} clickEvent={removeWorkInfo} />
+      <div className="form__utility__buttons">
+        <Button text={"Submit form"} bgColor={"#0353A4"} />
+        <Button text={"✏️ Edit form"} bgColor={"#0353A4"} />
+      </div>
     </form>
   );
 };
