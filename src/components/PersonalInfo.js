@@ -1,6 +1,25 @@
 import React from "react";
+import { useState } from "react";
+const PersonalInfo = ({ cvPersonalInfo }) => {
+  const [name, setName] = useState(
+    cvPersonalInfo.name !== "" ? cvPersonalInfo.name : ""
+  );
+  const [surname, setSurname] = useState(
+    cvPersonalInfo.surname !== "" ? cvPersonalInfo.surname : ""
+  );
+  const [birthDate, setBirthDate] = useState(
+    cvPersonalInfo.birthDate !== "" ? cvPersonalInfo.birthDate : ""
+  );
+  const [phoneNumber, setPhoneNumber] = useState(
+    cvPersonalInfo.phoneNumber !== "" ? cvPersonalInfo.phoneNumber : ""
+  );
+  const [email, setEmail] = useState(
+    cvPersonalInfo.email !== "" ? cvPersonalInfo.email : ""
+  );
+  const [address, setAddress] = useState(
+    cvPersonalInfo.address !== "" ? cvPersonalInfo.address : ""
+  );
 
-const PersonalInfo = () => {
   return (
     <div className="input__group">
       <h4 className="input__group__title">Personal information</h4>

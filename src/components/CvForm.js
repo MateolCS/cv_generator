@@ -5,7 +5,7 @@ import EducationInfo from "./EducationInfo";
 import Button from "./Button";
 import WorkExperience from "./WorkExperience";
 
-const CvForm = () => {
+const CvForm = ({ cv }) => {
   const [schoolInfo, setSchoolInfo] = useState(1);
   const [workInfo, setWorkInfo] = useState(1);
 
@@ -33,16 +33,26 @@ const CvForm = () => {
   const educationInfoComponents = [];
 
   for (let i = 0; i < schoolInfo; i++) {
-    educationInfoComponents.push(<EducationInfo key={i} />);
+    educationInfoComponents.push(
+      <EducationInfo
+        key={i}
+        cvPersonalInfo={cv.educationInfo[i] ? cv.educationInfo[i] : null}
+      />
+    );
   }
 
   for (let i = 0; i < workInfo; i++) {
-    workInfoComponents.push(<WorkExperience key={i} />);
+    workInfoComponents.push(
+      <WorkExperience
+        key={i}
+        cvWorkExperience={cv.workExperience[i] ? cv.workExperience[i] : null}
+      />
+    );
   }
 
   return (
     <form className="cv__form">
-      <PersonalInfo />
+      <PersonalInfo cvPersonalInfo={cv.personalInfo} />
       <h4 className="input__group__title">Education</h4>
       {educationInfoComponents}
       <Button text={"Add"} bgColor={"#33415C"} clickEvent={addEducationInfo} />
