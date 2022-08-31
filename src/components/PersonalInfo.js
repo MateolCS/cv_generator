@@ -23,8 +23,18 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
   return (
     <div className="input__group">
       <h4 className="input__group__title">Personal information</h4>
-      <input className="cv__form__input" type="text" placeholder="Name" />
-      <input className="cv__form__input" type="text" placeholder="Surname" />
+      <input
+        className="cv__form__input"
+        type="text"
+        placeholder="Name"
+        value={name}
+      />
+      <input
+        className="cv__form__input"
+        type="text"
+        placeholder="Surname"
+        value={surname}
+      />
       <input
         className="cv__form__input"
         type="text"
@@ -32,14 +42,26 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
           e.target.type = "date";
         }}
         placeholder="Birth date"
+        value={birthDate}
       />
       <input
         className="cv__form__input"
         type="tel"
         placeholder="Phone number"
+        value={phoneNumber}
       />
-      <input className="cv__form__input" type="email" placeholder="Email" />
-      <input className="cv__form__input" type="text" placeholder="Address" />
+      <input
+        className="cv__form__input"
+        type="email"
+        placeholder="Email"
+        value={email}
+      />
+      <input
+        className="cv__form__input"
+        type="text"
+        placeholder="Address"
+        value={address}
+      />
     </div>
   );
 };

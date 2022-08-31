@@ -7,12 +7,12 @@ import CvForm from "./components/CvForm";
 function App() {
   const [cv, setCv] = useState({
     personalInfo: {
-      name: "",
-      surname: "",
-      birthDate: "",
-      phoneNumber: "",
-      email: "",
-      address: "",
+      name: "Mateusz",
+      surname: "Namysł",
+      birthDate: "16.08.2022",
+      phoneNumber: "790300077",
+      email: "mateusz.namysl0318@gmail.com",
+      address: "Szczytniki ul.Boczna 8",
     },
     educationInfo: [
       {
