@@ -28,12 +28,18 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
         type="text"
         placeholder="Name"
         value={name}
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="Surname"
         value={surname}
+        onChange={(e) => {
+          setSurname(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
@@ -43,24 +49,36 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
         }}
         placeholder="Birth date"
         value={birthDate}
+        onChange={(e) => {
+          setBirthDate(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
         type="tel"
         placeholder="Phone number"
         value={phoneNumber}
+        onChange={(e) => {
+          setPhoneNumber(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
         type="email"
         placeholder="Email"
         value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="Address"
         value={address}
+        onChange={(e) => {
+          setAddress(e.target.value);
+        }}
       />
     </div>
   );
