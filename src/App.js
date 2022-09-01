@@ -16,18 +16,18 @@ function App() {
     },
     educationInfo: [
       {
-        from: "",
-        to: "",
-        schoolName: "",
-        degree: "",
+        from: "10.10.2022",
+        to: "11.11.2023",
+        schoolName: "ZSK",
+        degree: "Technik",
       },
     ],
     workExperience: [
       {
-        from: "",
-        to: "",
-        companyName: "",
-        position: "",
+        from: "10.10.2010",
+        to: "10.10.2013",
+        companyName: "Appunite",
+        position: "mid",
       },
     ],
   });

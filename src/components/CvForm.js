@@ -6,8 +6,8 @@ import Button from "./Button";
 import WorkExperience from "./WorkExperience";
 
 const CvForm = ({ cv }) => {
-  const [schoolInfo, setSchoolInfo] = useState(1);
-  const [workInfo, setWorkInfo] = useState(1);
+  const [schoolInfo, setSchoolInfo] = useState(cv.educationInfo.length);
+  const [workInfo, setWorkInfo] = useState(cv.workExperience.length);
 
   const addEducationInfo = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const CvForm = ({ cv }) => {
     educationInfoComponents.push(
       <EducationInfo
         key={i}
-        cvPersonalInfo={cv.educationInfo[i] ? cv.educationInfo[i] : null}
+        cvEducationInfo={cv.educationInfo[i] ? cv.educationInfo[i] : null}
       />
     );
   }

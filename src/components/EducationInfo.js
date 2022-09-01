@@ -1,6 +1,21 @@
 import React from "react";
+import { useState } from "react";
 
-const EducationInfo = () => {
+const EducationInfo = ({ cvEducationInfo }) => {
+  const [beginnig, setBeginnig] = useState(
+    cvEducationInfo.from !== "" ? cvEducationInfo.from : ""
+  );
+  const [end, setEnd] = useState(
+    cvEducationInfo.to !== "" ? cvEducationInfo.to : ""
+  );
+  const [schoolName, setSchoolName] = useState(
+    cvEducationInfo.schoolName !== "" ? cvEducationInfo.schoolName : ""
+  );
+
+  const [degree, setDegree] = useState(
+    cvEducationInfo.degree !== "" ? cvEducationInfo.degree : ""
+  );
+
   return (
     <div className="input__group">
       <input
@@ -10,6 +25,10 @@ const EducationInfo = () => {
           e.target.type = "date";
         }}
         placeholder="From"
+        value={beginnig}
+        onChange={(e) => {
+          setBeginnig(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
@@ -18,13 +37,29 @@ const EducationInfo = () => {
           e.target.type = "date";
         }}
         placeholder="To"
+        value={end}
+        onChange={(e) => {
+          setEnd(e.target.value);
+        }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="School name"
+        value={schoolName}
+        onChange={(e) => {
+          setSchoolName(e.target.value);
+        }}
       />
-      <input className="cv__form__input" type="text" placeholder="Degree" />
+      <input
+        className="cv__form__input"
+        type="text"
+        placeholder="Degree"
+        value={degree}
+        onChange={(e) => {
+          setDegree(e.target.value);
+        }}
+      />
     </div>
   );
 };
