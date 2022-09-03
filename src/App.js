@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CvForm from "./components/CvForm";
+import CV from "./components/cvDisplay/CV";
 
 function App() {
   const [cv, setCv] = useState({
@@ -37,6 +38,7 @@ function App() {
       <Header />
       <div className="container">
         <CvForm cv={cv} modifyCv={setCv} />
+        <CV cv={cv} />
       </div>
       <Footer />
     </>
