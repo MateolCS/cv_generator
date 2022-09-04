@@ -3,17 +3,17 @@ import { useState } from "react";
 
 const EducationInfo = ({ cvEducationInfo }) => {
   const [beginnig, setBeginnig] = useState(
-    cvEducationInfo.from !== "" ? cvEducationInfo.from : ""
+    cvEducationInfo !== null ? cvEducationInfo.from : ""
   );
   const [end, setEnd] = useState(
-    cvEducationInfo.to !== "" ? cvEducationInfo.to : ""
+    cvEducationInfo !== null ? cvEducationInfo.to : ""
   );
   const [schoolName, setSchoolName] = useState(
-    cvEducationInfo.schoolName !== "" ? cvEducationInfo.schoolName : ""
+    cvEducationInfo !== null ? cvEducationInfo.schoolName : ""
   );
 
   const [degree, setDegree] = useState(
-    cvEducationInfo.degree !== "" ? cvEducationInfo.degree : ""
+    cvEducationInfo !== null ? cvEducationInfo.degree : ""
   );
 
   return (

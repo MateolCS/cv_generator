@@ -3,17 +3,17 @@ import { useState } from "react";
 
 const WorkExperience = ({ cvWorkExperience }) => {
   const [beginnig, setBeginnig] = useState(
-    cvWorkExperience.from !== "" ? cvWorkExperience.from : ""
+    cvWorkExperience !== null ? cvWorkExperience.from : ""
   );
   const [end, setEnd] = useState(
-    cvWorkExperience.to !== "" ? cvWorkExperience.to : ""
+    cvWorkExperience !== null ? cvWorkExperience.to : ""
   );
   const [companyName, setCompanyName] = useState(
-    cvWorkExperience.companyName !== "" ? cvWorkExperience.companyName : ""
+    cvWorkExperience !== null ? cvWorkExperience.companyName : ""
   );
 
   const [position, setPosition] = useState(
-    cvWorkExperience.position !== "" ? cvWorkExperience.position : ""
+    cvWorkExperience !== null ? cvWorkExperience.position : ""
   );
 
   return (

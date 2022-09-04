@@ -5,9 +5,19 @@ import EducationInfo from "./EducationInfo";
 import Button from "./Button";
 import WorkExperience from "./WorkExperience";
 
-const CvForm = ({ cv }) => {
+const CvForm = ({ cv, modifyCv, showCv }) => {
   const [schoolInfo, setSchoolInfo] = useState(cv.educationInfo.length);
   const [workInfo, setWorkInfo] = useState(cv.workExperience.length);
+
+  const showPreview = (e) => {
+    e.preventDefault();
+    showCv(true);
+  };
+
+  const hidePreview = (e) => {
+    e.preventDefault();
+    showCv(false);
+  };
 
   const addEducationInfo = (e) => {
     e.preventDefault();
@@ -66,8 +76,16 @@ const CvForm = ({ cv }) => {
       <Button text={"Add"} bgColor={"#33415C"} clickEvent={addWorkInfo} />
       <Button text={"Remove"} bgColor={"#33415C"} clickEvent={removeWorkInfo} />
       <div className="form__utility__buttons">
-        <Button text={"Submit form"} bgColor={"#0353A4"} />
-        <Button text={"✏️ Edit form"} bgColor={"#0353A4"} />
+        <Button
+          text={"Submit form"}
+          bgColor={"#0353A4"}
+          clickEvent={showPreview}
+        />
+        <Button
+          text={"✏️ Edit form"}
+          bgColor={"#0353A4"}
+          clickEvent={hidePreview}
+        />
       </div>
     </form>
   );

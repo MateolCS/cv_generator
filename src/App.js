@@ -38,7 +38,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <CvForm cv={cv} modifyCv={setCv} />
+        <CvForm cv={cv} modifyCv={setCv} showCv={setShowCvPreview} />
         {showCvPreview && <CV cv={cv} />}
       </div>
       <Footer />
