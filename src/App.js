@@ -6,6 +6,7 @@ import CvForm from "./components/CvForm";
 import CV from "./components/cvDisplay/CV";
 
 function App() {
+  const [showCvPreview, setShowCvPreview] = useState(false);
   const [cv, setCv] = useState({
     personalInfo: {
       name: "Mateusz",
@@ -38,7 +39,7 @@ function App() {
       <Header />
       <div className="container">
         <CvForm cv={cv} modifyCv={setCv} />
-        <CV cv={cv} />
+        {showCvPreview && <CV cv={cv} />}
       </div>
       <Footer />
     </>
