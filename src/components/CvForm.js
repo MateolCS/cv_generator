@@ -5,9 +5,15 @@ import EducationInfo from "./EducationInfo";
 import Button from "./Button";
 import WorkExperience from "./WorkExperience";
 
-const CvForm = ({ cv, modifyCv, showCv }) => {
-  const [schoolInfo, setSchoolInfo] = useState(cv.educationInfo.length);
-  const [workInfo, setWorkInfo] = useState(cv.workExperience.length);
+const CvForm = ({
+  educationInfo,
+  workExperience,
+  personalInfo,
+  showCv,
+  updateEducationInfo,
+}) => {
+  const [schoolInfo, setSchoolInfo] = useState(educationInfo.length);
+  const [workInfo, setWorkInfo] = useState(workExperience.length);
 
   const showPreview = (e) => {
     e.preventDefault();
@@ -46,7 +52,8 @@ const CvForm = ({ cv, modifyCv, showCv }) => {
     educationInfoComponents.push(
       <EducationInfo
         key={i}
-        cvEducationInfo={cv.educationInfo[i] ? cv.educationInfo[i] : null}
+        cvEducationInfo={educationInfo[i] ? educationInfo[i] : null}
+        updateExperience={updateEducationInfo}
       />
     );
   }
@@ -55,14 +62,14 @@ const CvForm = ({ cv, modifyCv, showCv }) => {
     workInfoComponents.push(
       <WorkExperience
         key={i}
-        cvWorkExperience={cv.workExperience[i] ? cv.workExperience[i] : null}
+        cvWorkExperience={workExperience[i] ? workExperience[i] : null}
       />
     );
   }
 
   return (
     <form className="cv__form">
-      <PersonalInfo cvPersonalInfo={cv.personalInfo} />
+      <PersonalInfo cvPersonalInfo={personalInfo} />
       <h4 className="input__group__title">Education</h4>
       {educationInfoComponents}
       <Button text={"Add"} bgColor={"#33415C"} clickEvent={addEducationInfo} />

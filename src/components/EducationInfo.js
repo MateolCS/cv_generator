@@ -1,21 +1,6 @@
 import React from "react";
-import { useState } from "react";
 
-const EducationInfo = ({ cvEducationInfo }) => {
-  const [beginnig, setBeginnig] = useState(
-    cvEducationInfo !== null ? cvEducationInfo.from : ""
-  );
-  const [end, setEnd] = useState(
-    cvEducationInfo !== null ? cvEducationInfo.to : ""
-  );
-  const [schoolName, setSchoolName] = useState(
-    cvEducationInfo !== null ? cvEducationInfo.schoolName : ""
-  );
-
-  const [degree, setDegree] = useState(
-    cvEducationInfo !== null ? cvEducationInfo.degree : ""
-  );
-
+const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
   return (
     <div className="input__group">
       <input
@@ -25,9 +10,10 @@ const EducationInfo = ({ cvEducationInfo }) => {
           e.target.type = "date";
         }}
         placeholder="From"
-        value={beginnig}
+        value={cvEducationInfo ? cvEducationInfo.from : ""}
+        name="from"
         onChange={(e) => {
-          setBeginnig(e.target.value);
+          updateExperience(e);
         }}
       />
       <input
@@ -37,27 +23,29 @@ const EducationInfo = ({ cvEducationInfo }) => {
           e.target.type = "date";
         }}
         placeholder="To"
-        value={end}
+        value={cvEducationInfo ? cvEducationInfo.to : ""}
+        name="to"
         onChange={(e) => {
-          setEnd(e.target.value);
+          updateExperience(e);
         }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="School name"
-        value={schoolName}
+        value={cvEducationInfo ? cvEducationInfo.schoolName : ""}
+        name="schoolName"
         onChange={(e) => {
-          setSchoolName(e.target.value);
+          updateExperience(e);
         }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="Degree"
-        value={degree}
+        value={cvEducationInfo ? cvEducationInfo.degree : ""}
         onChange={(e) => {
-          setDegree(e.target.value);
+          updateExperience(e);
         }}
       />
     </div>
