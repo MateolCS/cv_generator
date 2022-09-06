@@ -11,6 +11,7 @@ const CvForm = ({
   personalInfo,
   showCv,
   updateEducationInfo,
+  updatePersonalInfo,
 }) => {
   const [schoolInfo, setSchoolInfo] = useState(educationInfo.length);
   const [workInfo, setWorkInfo] = useState(workExperience.length);
@@ -69,7 +70,10 @@ const CvForm = ({
 
   return (
     <form className="cv__form">
-      <PersonalInfo cvPersonalInfo={personalInfo} />
+      <PersonalInfo
+        cvPersonalInfo={personalInfo}
+        updatePersonalInfo={updatePersonalInfo}
+      />
       <h4 className="input__group__title">Education</h4>
       {educationInfoComponents}
       <Button text={"Add"} bgColor={"#33415C"} clickEvent={addEducationInfo} />

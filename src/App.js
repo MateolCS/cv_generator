@@ -35,12 +35,17 @@ function App() {
     },
   ]);
 
+  const updatePersonalInfo = (e) => {
+    setPersonalInfo({ ...personalInfo, [e.target.name]: e.target.value });
+  };
+
   return (
     <>
       <Header />
       <div className="container">
         <CvForm
           personalInfo={personalInfo}
+          updatePersonalInfo={updatePersonalInfo}
           educationInfo={educationInfo}
           workExperience={workExperience}
           showCv={setShowCvPreview}

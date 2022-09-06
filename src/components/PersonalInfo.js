@@ -1,25 +1,6 @@
 import React from "react";
-import { useState } from "react";
-const PersonalInfo = ({ cvPersonalInfo }) => {
-  const [name, setName] = useState(
-    cvPersonalInfo.name !== "" ? cvPersonalInfo.name : ""
-  );
-  const [surname, setSurname] = useState(
-    cvPersonalInfo.surname !== "" ? cvPersonalInfo.surname : ""
-  );
-  const [birthDate, setBirthDate] = useState(
-    cvPersonalInfo.birthDate !== "" ? cvPersonalInfo.birthDate : ""
-  );
-  const [phoneNumber, setPhoneNumber] = useState(
-    cvPersonalInfo.phoneNumber !== "" ? cvPersonalInfo.phoneNumber : ""
-  );
-  const [email, setEmail] = useState(
-    cvPersonalInfo.email !== "" ? cvPersonalInfo.email : ""
-  );
-  const [address, setAddress] = useState(
-    cvPersonalInfo.address !== "" ? cvPersonalInfo.address : ""
-  );
 
+const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
   return (
     <div className="input__group">
       <h4 className="input__group__title">Personal information</h4>
@@ -27,18 +8,20 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
         className="cv__form__input"
         type="text"
         placeholder="Name"
-        value={name}
+        value={cvPersonalInfo.name}
+        name="name"
         onChange={(e) => {
-          setName(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="Surname"
-        value={surname}
+        value={cvPersonalInfo.surname}
+        name="surname"
         onChange={(e) => {
-          setSurname(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
       <input
@@ -48,36 +31,40 @@ const PersonalInfo = ({ cvPersonalInfo }) => {
           e.target.type = "date";
         }}
         placeholder="Birth date"
-        value={birthDate}
+        value={cvPersonalInfo.birthDate}
+        name="birthDate"
         onChange={(e) => {
-          setBirthDate(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
       <input
         className="cv__form__input"
         type="tel"
         placeholder="Phone number"
-        value={phoneNumber}
+        value={cvPersonalInfo.phoneNumber}
+        name="phoneNumber"
         onChange={(e) => {
-          setPhoneNumber(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
       <input
         className="cv__form__input"
         type="email"
         placeholder="Email"
-        value={email}
+        value={cvPersonalInfo.email}
+        name="email"
         onChange={(e) => {
-          setEmail(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
       <input
         className="cv__form__input"
         type="text"
         placeholder="Address"
-        value={address}
+        value={cvPersonalInfo.address}
+        name="address"
         onChange={(e) => {
-          setAddress(e.target.value);
+          updatePersonalInfo(e);
         }}
       />
     </div>
