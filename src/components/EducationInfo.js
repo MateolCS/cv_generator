@@ -1,6 +1,6 @@
 import React from "react";
 
-const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
+const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
   return (
     <div className="input__group">
       <input
@@ -15,6 +15,7 @@ const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
         onChange={(e) => {
           updateExperience(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -28,6 +29,7 @@ const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
         onChange={(e) => {
           updateExperience(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -38,6 +40,7 @@ const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
         onChange={(e) => {
           updateExperience(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -47,6 +50,7 @@ const EducationInfo = ({ cvEducationInfo, updateExperience }) => {
         onChange={(e) => {
           updateExperience(e);
         }}
+        disabled={inputState}
       />
     </div>
   );

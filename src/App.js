@@ -7,6 +7,7 @@ import CV from "./components/cvDisplay/CV";
 
 function App() {
   const [showCvPreview, setShowCvPreview] = useState(false);
+  const [disableInput, setDisableInput] = useState(false);
   const [personalInfo, setPersonalInfo] = useState({
     name: "Mateusz",
     surname: "Namysł",
@@ -77,6 +78,8 @@ function App() {
     setPersonalInfo({ ...personalInfo, [e.target.name]: e.target.value });
   };
 
+  const updateEducationInfo = (e) => {};
+
   return (
     <>
       <Header />
@@ -91,6 +94,8 @@ function App() {
           onEducationAdd={addEducation}
           onWorkRemove={removeWork}
           onEducationRemove={removeEducation}
+          disableInput={disableInput}
+          setDisableInput={setDisableInput}
         />
         {showCvPreview && (
           <CV cv={{ personalInfo, educationInfo, workExperience }} />

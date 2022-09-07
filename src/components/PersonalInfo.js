@@ -1,6 +1,6 @@
 import React from "react";
 
-const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
+const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo, inputState }) => {
   return (
     <div className="input__group">
       <h4 className="input__group__title">Personal information</h4>
@@ -13,6 +13,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -23,6 +24,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -36,6 +38,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -46,6 +49,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -56,6 +60,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -66,6 +71,7 @@ const PersonalInfo = ({ cvPersonalInfo, updatePersonalInfo }) => {
         onChange={(e) => {
           updatePersonalInfo(e);
         }}
+        disabled={inputState}
       />
     </div>
   );

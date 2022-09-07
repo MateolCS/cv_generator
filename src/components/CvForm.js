@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import EducationInfo from "./EducationInfo";
 import Button from "./Button";
@@ -16,6 +15,8 @@ const CvForm = ({
   onEducationAdd,
   onWorkRemove,
   onEducationRemove,
+  disableInput,
+  setDisableInput,
 }) => {
   const workInfoComponents = [];
   const educationInfoComponents = [];
@@ -23,11 +24,13 @@ const CvForm = ({
   const showPreview = (e) => {
     e.preventDefault();
     showCv(true);
+    setDisableInput(true);
   };
 
   const hidePreview = (e) => {
     e.preventDefault();
     showCv(false);
+    setDisableInput(false);
   };
 
   for (let i = 0; i < educationInfo.length; i++) {
@@ -36,6 +39,7 @@ const CvForm = ({
         key={i}
         cvEducationInfo={educationInfo[i] ? educationInfo[i] : null}
         updateExperience={updateEducationInfo}
+        inputState={disableInput}
       />
     );
   }
@@ -45,6 +49,7 @@ const CvForm = ({
       <WorkExperience
         key={i}
         cvWorkExperience={workExperience[i] ? workExperience[i] : null}
+        inputState={disableInput}
       />
     );
   }
@@ -54,6 +59,7 @@ const CvForm = ({
       <PersonalInfo
         cvPersonalInfo={personalInfo}
         updatePersonalInfo={updatePersonalInfo}
+        inputState={disableInput}
       />
       <h4 className="input__group__title">Education</h4>
       {educationInfoComponents}

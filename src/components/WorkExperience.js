@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const WorkExperience = ({ cvWorkExperience }) => {
+const WorkExperience = ({ cvWorkExperience, inputState }) => {
   const [beginnig, setBeginnig] = useState(
     cvWorkExperience !== null ? cvWorkExperience.from : ""
   );
@@ -29,6 +29,7 @@ const WorkExperience = ({ cvWorkExperience }) => {
         onChange={(e) => {
           setBeginnig(e.target.value);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -41,6 +42,7 @@ const WorkExperience = ({ cvWorkExperience }) => {
         onChange={(e) => {
           setEnd(e.target.value);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -50,6 +52,7 @@ const WorkExperience = ({ cvWorkExperience }) => {
         onChange={(e) => {
           setCompanyName(e.target.value);
         }}
+        disabled={inputState}
       />
       <input
         className="cv__form__input"
@@ -59,6 +62,7 @@ const WorkExperience = ({ cvWorkExperience }) => {
         onChange={(e) => {
           setPosition(e.target.value);
         }}
+        disabled={inputState}
       />
     </div>
   );
