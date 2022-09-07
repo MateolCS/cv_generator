@@ -12,9 +12,13 @@ const CvForm = ({
   showCv,
   updateEducationInfo,
   updatePersonalInfo,
+  onWorkAdd,
+  onEducationAdd,
+  onWorkRemove,
+  onEducationRemove,
 }) => {
-  const [schoolInfo, setSchoolInfo] = useState(educationInfo.length);
-  const [workInfo, setWorkInfo] = useState(workExperience.length);
+  const workInfoComponents = [];
+  const educationInfoComponents = [];
 
   const showPreview = (e) => {
     e.preventDefault();
@@ -26,30 +30,7 @@ const CvForm = ({
     showCv(false);
   };
 
-  const addEducationInfo = (e) => {
-    e.preventDefault();
-    setSchoolInfo(schoolInfo + 1);
-  };
-
-  const removeEducationInfo = (e) => {
-    e.preventDefault();
-    setSchoolInfo(schoolInfo === 1 ? 1 : schoolInfo - 1);
-  };
-
-  const addWorkInfo = (e) => {
-    e.preventDefault();
-    setWorkInfo(workInfo + 1);
-  };
-
-  const removeWorkInfo = (e) => {
-    e.preventDefault();
-    setWorkInfo(workInfo === 1 ? 1 : workInfo - 1);
-  };
-
-  const workInfoComponents = [];
-  const educationInfoComponents = [];
-
-  for (let i = 0; i < schoolInfo; i++) {
+  for (let i = 0; i < educationInfo.length; i++) {
     educationInfoComponents.push(
       <EducationInfo
         key={i}
@@ -59,7 +40,7 @@ const CvForm = ({
     );
   }
 
-  for (let i = 0; i < workInfo; i++) {
+  for (let i = 0; i < workExperience.length; i++) {
     workInfoComponents.push(
       <WorkExperience
         key={i}
@@ -76,16 +57,16 @@ const CvForm = ({
       />
       <h4 className="input__group__title">Education</h4>
       {educationInfoComponents}
-      <Button text={"Add"} bgColor={"#33415C"} clickEvent={addEducationInfo} />
+      <Button text={"Add"} bgColor={"#33415C"} clickEvent={onEducationAdd} />
       <Button
         text={"Remove"}
         bgColor={"#33415C"}
-        clickEvent={removeEducationInfo}
+        clickEvent={onEducationRemove}
       />
       <h4 className="input__group__title">Work experience</h4>
       {workInfoComponents}
-      <Button text={"Add"} bgColor={"#33415C"} clickEvent={addWorkInfo} />
-      <Button text={"Remove"} bgColor={"#33415C"} clickEvent={removeWorkInfo} />
+      <Button text={"Add"} bgColor={"#33415C"} clickEvent={onWorkAdd} />
+      <Button text={"Remove"} bgColor={"#33415C"} clickEvent={onWorkRemove} />
       <div className="form__utility__buttons">
         <Button
           text={"Submit form"}

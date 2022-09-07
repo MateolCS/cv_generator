@@ -35,6 +35,44 @@ function App() {
     },
   ]);
 
+  const addEducation = (e) => {
+    e.preventDefault();
+    setEducationInfo([
+      ...educationInfo,
+      {
+        id: educationInfo.length + 1,
+        from: "",
+        to: "",
+        schoolName: "",
+        degree: "",
+      },
+    ]);
+  };
+
+  const addWork = (e) => {
+    e.preventDefault();
+    setWorkExperience([
+      ...workExperience,
+      {
+        id: workExperience.length + 1,
+        from: "",
+        to: "",
+        companyName: "",
+        position: "",
+      },
+    ]);
+  };
+
+  const removeEducation = (e) => {
+    e.preventDefault();
+    setEducationInfo(educationInfo.slice(0, educationInfo.length - 1));
+  };
+
+  const removeWork = (e) => {
+    e.preventDefault();
+    setWorkExperience(workExperience.slice(0, workExperience.length - 1));
+  };
+
   const updatePersonalInfo = (e) => {
     setPersonalInfo({ ...personalInfo, [e.target.name]: e.target.value });
   };
@@ -49,6 +87,10 @@ function App() {
           educationInfo={educationInfo}
           workExperience={workExperience}
           showCv={setShowCvPreview}
+          onWorkAdd={addWork}
+          onEducationAdd={addEducation}
+          onWorkRemove={removeWork}
+          onEducationRemove={removeEducation}
         />
         {showCvPreview && (
           <CV cv={{ personalInfo, educationInfo, workExperience }} />
