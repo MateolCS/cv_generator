@@ -38,8 +38,8 @@ const CvForm = ({
     educationInfoComponents.push(
       <EducationInfo
         key={i}
-        cvEducationInfo={educationInfo[i]}
-        updateExperience={updateEducationInfo}
+        educationInfo={educationInfo[i]}
+        updateEducationInfo={updateEducationInfo}
         inputState={disableInput}
       />
     );

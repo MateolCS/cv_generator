@@ -89,13 +89,16 @@ function App() {
   };
 
   const updateEducationInfo = (e) => {
-    setWorkExperience(
+    setEducationInfo(
       educationInfo.map((education) =>
         education.id === parseInt(e.target.parentElement.id)
           ? { ...education, [e.target.name]: e.target.value }
           : education
       )
     );
+    // console.log(e.target.parentElement.id);
+    // console.log(e.target.name);
+    // console.log(e.target.value);
   };
 
   return (

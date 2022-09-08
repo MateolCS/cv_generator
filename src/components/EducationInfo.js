@@ -1,8 +1,8 @@
 import React from "react";
 
-const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
+const EducationInfo = ({ educationInfo, updateEducationInfo, inputState }) => {
   return (
-    <div className="input__group">
+    <div className="input__group" id={educationInfo.id}>
       <input
         className="cv__form__input"
         type="text"
@@ -10,10 +10,10 @@ const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
           e.target.type = "date";
         }}
         placeholder="From"
-        value={cvEducationInfo ? cvEducationInfo.from : ""}
+        value={educationInfo.from}
         name="from"
         onChange={(e) => {
-          updateExperience(e);
+          updateEducationInfo(e);
         }}
         disabled={inputState}
       />
@@ -24,10 +24,10 @@ const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
           e.target.type = "date";
         }}
         placeholder="To"
-        value={cvEducationInfo ? cvEducationInfo.to : ""}
+        value={educationInfo.to}
         name="to"
         onChange={(e) => {
-          updateExperience(e);
+          updateEducationInfo(e);
         }}
         disabled={inputState}
       />
@@ -35,10 +35,10 @@ const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
         className="cv__form__input"
         type="text"
         placeholder="School name"
-        value={cvEducationInfo ? cvEducationInfo.schoolName : ""}
+        value={educationInfo.schoolName}
         name="schoolName"
         onChange={(e) => {
-          updateExperience(e);
+          updateEducationInfo(e);
         }}
         disabled={inputState}
       />
@@ -46,9 +46,10 @@ const EducationInfo = ({ cvEducationInfo, updateExperience, inputState }) => {
         className="cv__form__input"
         type="text"
         placeholder="Degree"
-        value={cvEducationInfo ? cvEducationInfo.degree : ""}
+        value={educationInfo.degree}
+        name="degree"
         onChange={(e) => {
-          updateExperience(e);
+          updateEducationInfo(e);
         }}
         disabled={inputState}
       />
