@@ -78,7 +78,25 @@ function App() {
     setPersonalInfo({ ...personalInfo, [e.target.name]: e.target.value });
   };
 
-  const updateEducationInfo = (e) => {};
+  const updateWorkExperience = (e) => {
+    setWorkExperience(
+      workExperience.map((work) =>
+        work.id === parseInt(e.target.parentElement.id)
+          ? { ...work, [e.target.name]: e.target.value }
+          : work
+      )
+    );
+  };
+
+  const updateEducationInfo = (e) => {
+    setWorkExperience(
+      educationInfo.map((education) =>
+        education.id === parseInt(e.target.parentElement.id)
+          ? { ...education, [e.target.name]: e.target.value }
+          : education
+      )
+    );
+  };
 
   return (
     <>
@@ -96,6 +114,8 @@ function App() {
           onEducationRemove={removeEducation}
           disableInput={disableInput}
           setDisableInput={setDisableInput}
+          updateEducationInfo={updateEducationInfo}
+          updateWorkExperience={updateWorkExperience}
         />
         {showCvPreview && (
           <CV cv={{ personalInfo, educationInfo, workExperience }} />

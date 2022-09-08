@@ -17,6 +17,7 @@ const CvForm = ({
   onEducationRemove,
   disableInput,
   setDisableInput,
+  updateWorkExperience,
 }) => {
   const workInfoComponents = [];
   const educationInfoComponents = [];
@@ -37,7 +38,7 @@ const CvForm = ({
     educationInfoComponents.push(
       <EducationInfo
         key={i}
-        cvEducationInfo={educationInfo[i] ? educationInfo[i] : null}
+        cvEducationInfo={educationInfo[i]}
         updateExperience={updateEducationInfo}
         inputState={disableInput}
       />
@@ -48,8 +49,9 @@ const CvForm = ({
     workInfoComponents.push(
       <WorkExperience
         key={i}
-        cvWorkExperience={workExperience[i] ? workExperience[i] : null}
+        workExperience={workExperience[i]}
         inputState={disableInput}
+        updateWorkExperience={updateWorkExperience}
       />
     );
   }

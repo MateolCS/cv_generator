@@ -1,23 +1,12 @@
 import React from "react";
-import { useState } from "react";
 
-const WorkExperience = ({ cvWorkExperience, inputState }) => {
-  const [beginnig, setBeginnig] = useState(
-    cvWorkExperience !== null ? cvWorkExperience.from : ""
-  );
-  const [end, setEnd] = useState(
-    cvWorkExperience !== null ? cvWorkExperience.to : ""
-  );
-  const [companyName, setCompanyName] = useState(
-    cvWorkExperience !== null ? cvWorkExperience.companyName : ""
-  );
-
-  const [position, setPosition] = useState(
-    cvWorkExperience !== null ? cvWorkExperience.position : ""
-  );
-
+const WorkExperience = ({
+  workExperience,
+  inputState,
+  updateWorkExperience,
+}) => {
   return (
-    <div className="input__group">
+    <div className="input__group" id={workExperience.id}>
       <input
         className="cv__form__input"
         type="text"
@@ -25,9 +14,10 @@ const WorkExperience = ({ cvWorkExperience, inputState }) => {
           e.target.type = "date";
         }}
         placeholder="From"
-        value={beginnig}
+        value={workExperience.from}
+        name="from"
         onChange={(e) => {
-          setBeginnig(e.target.value);
+          updateWorkExperience(e);
         }}
         disabled={inputState}
       />
@@ -38,9 +28,10 @@ const WorkExperience = ({ cvWorkExperience, inputState }) => {
           e.target.type = "date";
         }}
         placeholder="To"
-        value={end}
+        value={workExperience.to}
+        name="to"
         onChange={(e) => {
-          setEnd(e.target.value);
+          updateWorkExperience(e);
         }}
         disabled={inputState}
       />
@@ -48,9 +39,10 @@ const WorkExperience = ({ cvWorkExperience, inputState }) => {
         className="cv__form__input"
         type="text"
         placeholder="Company name"
-        value={companyName}
+        value={workExperience.companyName}
+        name="companyName"
         onChange={(e) => {
-          setCompanyName(e.target.value);
+          updateWorkExperience(e);
         }}
         disabled={inputState}
       />
@@ -58,9 +50,10 @@ const WorkExperience = ({ cvWorkExperience, inputState }) => {
         className="cv__form__input"
         type="text"
         placeholder="Position"
-        value={position}
+        value={workExperience.position}
+        name="position"
         onChange={(e) => {
-          setPosition(e.target.value);
+          updateWorkExperience(e);
         }}
         disabled={inputState}
       />
